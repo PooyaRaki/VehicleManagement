@@ -1,0 +1,10 @@
+{
+  "semi": true,
+  "bracketSpacing": true,
+  "editor.formatOnSave": true,
+  "requireConfig": false,
+  "useTabs": false,
+  "tabWidth": 4,
+  "singleQuote": true,
+  "trailingComma": "es5"
+}

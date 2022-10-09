@@ -1,0 +1,13 @@
+**/dist
+**/dist/*
+**/node_modules
+**/statics
+**/coverage
+**/*.sqlite
+**/*.log
+/mongodb*
+**/**.env
+/nginx/**.pem
+.vscode/
+**/.DS_Store
+**/.env

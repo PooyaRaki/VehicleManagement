@@ -1,0 +1,48 @@
+{
+  "compilerOptions": {
+    "pretty": true,
+    "strict": true,
+    "baseUrl": "./src",
+    "target": "ES2022",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "incremental": true,
+    "diagnostics": false,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "declarationMap": true,
+    "removeComments": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "noImplicitOverride": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "skipDefaultLibCheck": true,
+    "strictFunctionTypes": true,
+    "allowUnreachableCode": false,
+    "preserveValueImports": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true,
+    "useUnknownInCatchVariables": true,
+    "allowSyntheticDefaultImports": true,
+    "strictPropertyInitialization": false,
+    "forceConsistentCasingInFileNames": true,
+
+    "paths": {
+      "@app/*": ["app/*"],
+      "@jobs/*": ["jobs/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"]
+    }
+  }
+}
