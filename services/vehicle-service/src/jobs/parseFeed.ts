@@ -1,9 +1,9 @@
 import { FeedController } from "@components/feed/v1";
 
-export const parseFeed = async () => {
-    const controller = new FeedController();
+export const parseFeed = async (): Promise<void> => {
+  const controller = new FeedController();
 
-    await controller.save();
+  await controller.save();
 
-    console.log('Data has been fetched');
-}
+  console.log("Data has been fetched");
+};

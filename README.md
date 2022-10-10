@@ -37,6 +37,14 @@ Install dependencies
 ```bash
   npm install
 ```
+Build the service
+```bash
+  npm run build
+```
+Run necessary migrations
+```bash
+  npm run migration:run
+```
 Run the server
 ```bash
   npm run start:prod
@@ -59,6 +67,16 @@ Install dependencies
 
 ```bash
   npm install
+```
+
+Build the service
+
+```bash
+  npm run build
+```
+Run necessary migrations
+```bash
+  npm run migration:run
 ```
 
 Start the server

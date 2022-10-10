@@ -1,18 +1,18 @@
 {
-    "entryFile": "src/main.ts",
-    "noImplicitAdditionalProperties": "throw-on-extras",
-    "controllerPathGlobs": ["src/**/*.controller.ts"],
-    "compilerOptions": {
-      "baseUrl": "./src",
-      "paths": {
-        "@app/*": ["app/*"],
-        "@jobs/*": ["jobs/*"],
-        "@utils/*": ["utils/*"],
-        "@components/*": ["components/*"]
-      }
-    },
-    "spec": {
-      "outputDirectory": "./src",
-      "specVersion": 3
+  "entryFile": "src/main.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": ["src/**/*.controller.ts"],
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@jobs/*": ["jobs/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"]
     }
-  }  
+  },
+  "spec": {
+    "outputDirectory": "./src",
+    "specVersion": 3
+  }
+}

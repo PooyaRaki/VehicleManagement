@@ -1,270 +1,268 @@
 {
-	"components": {
-		"examples": {},
-		"headers": {},
-		"parameters": {},
-		"requestBodies": {},
-		"responses": {},
-		"schemas": {
-			"Currency": {
-				"enum": [
-					"EUR"
-				],
-				"type": "string"
-			},
-			"PricePlan": {
-				"properties": {
-					"name": {
-						"type": "string"
-					},
-					"price": {
-						"type": "number",
-						"format": "double"
-					},
-					"plan_id": {
-						"type": "string"
-					},
-					"currency": {
-						"$ref": "#/components/schemas/Currency"
-					},
-					"description": {
-						"type": "string"
-					},
-					"is_taxable": {
-						"type": "boolean"
-					},
-					"per_min_pricing": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"name",
-					"price",
-					"plan_id",
-					"currency",
-					"description",
-					"is_taxable",
-					"per_min_pricing"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Vehicle": {
-				"properties": {
-					"id": {
-						"type": "number",
-						"format": "double"
-					},
-					"bike_id": {
-						"type": "string"
-					},
-					"lat": {
-						"type": "number",
-						"format": "double"
-					},
-					"lon": {
-						"type": "number",
-						"format": "double"
-					},
-					"is_reserved": {
-						"type": "boolean"
-					},
-					"is_disabled": {
-						"type": "boolean"
-					},
-					"pricing_plan_id": {
-						"type": "string"
-					},
-					"price": {
-						"$ref": "#/components/schemas/Price"
-					},
-					"vehicle_type_id": {
-						"type": "string"
-					},
-					"rental_uris": {
-						"type": "string"
-					},
-					"current_range_meters": {
-						"type": "number",
-						"format": "double"
-					}
-				},
-				"required": [
-					"id",
-					"bike_id",
-					"lat",
-					"lon",
-					"is_reserved",
-					"is_disabled",
-					"pricing_plan_id",
-					"price",
-					"vehicle_type_id",
-					"rental_uris",
-					"current_range_meters"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Price": {
-				"properties": {
-					"id": {
-						"type": "number",
-						"format": "double"
-					},
-					"plan_id": {
-						"type": "string"
-					},
-					"name": {
-						"type": "string"
-					},
-					"currency": {
-						"$ref": "#/components/schemas/Currency"
-					},
-					"price": {
-						"type": "number",
-						"format": "double"
-					},
-					"is_taxable": {
-						"type": "boolean"
-					},
-					"description": {
-						"type": "string"
-					},
-					"per_min_pricing": {
-						"type": "string"
-					},
-					"vehicle": {
-						"items": {
-							"$ref": "#/components/schemas/Vehicle"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"id",
-					"plan_id",
-					"name",
-					"currency",
-					"price",
-					"is_taxable",
-					"description",
-					"per_min_pricing",
-					"vehicle"
-				],
-				"type": "object",
-				"additionalProperties": false
-			}
-		},
-		"securitySchemes": {}
-	},
-	"info": {
-		"title": "vehicle",
-		"version": "1.0.0",
-		"description": "This is an endpoint to capture vehicles",
-		"license": {
-			"name": "MIT"
-		},
-		"contact": {
-			"name": "PooyaRaki"
-		}
-	},
-	"openapi": "3.0.0",
-	"paths": {
-		"/v1/price": {
-			"get": {
-				"operationId": "Fetch",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/PricePlan"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Returns pricing plans",
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/v1/vehicle": {
-			"get": {
-				"operationId": "Fetch",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Vehicle"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"description": "Returns all bikes",
-				"security": [],
-				"parameters": [
-					{
-						"in": "query",
-						"name": "available",
-						"required": false,
-						"schema": {
-							"type": "string"
-						}
-					},
-					{
-						"in": "query",
-						"name": "distance",
-						"required": false,
-						"schema": {
-							"type": "number"
-						}
-					}
-				]
-			}
-		},
-		"/v1/vehicle/{id}": {
-			"get": {
-				"operationId": "FetchByIdOrFail",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Vehicle"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "id",
-						"required": true,
-						"schema": {
-							"type": "string"
-						}
-					}
-				]
-			}
-		}
-	},
-	"servers": [
-		{
-			"url": "/"
-		}
-	]
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "Currency": {
+        "enum": ["EUR"],
+        "type": "string"
+      },
+      "PricePlan": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "plan_id": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "description": {
+            "type": "string"
+          },
+          "is_taxable": {
+            "type": "boolean"
+          },
+          "per_min_pricing": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "price",
+          "plan_id",
+          "currency",
+          "description",
+          "is_taxable",
+          "per_min_pricing"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Vehicle": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "double"
+          },
+          "bike_id": {
+            "type": "string"
+          },
+          "lat": {
+            "type": "number",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "format": "double"
+          },
+          "is_reserved": {
+            "type": "boolean"
+          },
+          "is_disabled": {
+            "type": "boolean"
+          },
+          "pricing_plan_id": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/components/schemas/Price"
+          },
+          "vehicle_type_id": {
+            "type": "string"
+          },
+          "rental_uris": {
+            "type": "string"
+          },
+          "current_range_meters": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "required": [
+          "id",
+          "bike_id",
+          "lat",
+          "lon",
+          "is_reserved",
+          "is_disabled",
+          "pricing_plan_id",
+          "price",
+          "vehicle_type_id",
+          "rental_uris",
+          "current_range_meters"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Price": {
+        "properties": {
+          "id": {
+            "type": "number",
+            "format": "double"
+          },
+          "plan_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/Currency"
+          },
+          "price": {
+            "type": "number",
+            "format": "double"
+          },
+          "is_taxable": {
+            "type": "boolean"
+          },
+          "description": {
+            "type": "string"
+          },
+          "per_min_pricing": {
+            "type": "string"
+          },
+          "vehicle": {
+            "items": {
+              "$ref": "#/components/schemas/Vehicle"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "plan_id",
+          "name",
+          "currency",
+          "price",
+          "is_taxable",
+          "description",
+          "per_min_pricing",
+          "vehicle"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {}
+  },
+  "info": {
+    "title": "vehicle",
+    "version": "1.0.0",
+    "description": "This is an endpoint to capture vehicles",
+    "license": {
+      "name": "MIT"
+    },
+    "contact": {
+      "name": "PooyaRaki"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/v1/price": {
+      "get": {
+        "operationId": "Fetch",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/PricePlan"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "description": "Returns pricing plans",
+        "security": [],
+        "parameters": []
+      }
+    },
+    "/v1/vehicle": {
+      "get": {
+        "operationId": "Fetch",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/Vehicle"
+                  },
+                  "type": "array"
+                }
+              }
+            }
+          }
+        },
+        "description": "Returns all bikes",
+        "security": [],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "available",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "distance",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/v1/vehicle/{id}": {
+      "get": {
+        "operationId": "FetchByIdOrFail",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vehicle"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
 }

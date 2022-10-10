@@ -7,7 +7,7 @@ import { VehicleListDto } from "./dto/vehicleList.dto";
 
 const router = Router();
 
-router.get('/', async (request: Request, response: Response): Promise<void> => {
+router.get("/", async (request: Request, response: Response): Promise<void> => {
   const controller = new VehicleController();
   const params = await Validator(VehicleListDto, request.query);
 
@@ -16,13 +16,19 @@ router.get('/', async (request: Request, response: Response): Promise<void> => {
   response.send(result);
 });
 
-router.get('/:id', async (request: Request, response: Response): Promise<void> => {
-  const controller = new VehicleController();
-  const params = await Validator<FetchVehicleDto>(FetchVehicleDto, request.params);
+router.get(
+  "/:id",
+  async (request: Request, response: Response): Promise<void> => {
+    const controller = new VehicleController();
+    const params = await Validator<FetchVehicleDto>(
+      FetchVehicleDto,
+      request.params
+    );
 
-  const result = await controller.fetchByIdOrFail(params.id);
+    const result = await controller.fetchByIdOrFail(params.id);
 
-  response.send(result);
-});
+    response.send(result);
+  }
+);
 
 export default router;

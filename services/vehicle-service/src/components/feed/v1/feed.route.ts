@@ -5,7 +5,7 @@ import { FeedController } from "./feed.controller";
 
 const router = Router();
 
-router.get('/save', async (_: Request, response: Response): Promise<void> => {
+router.get("/save", async (_: Request, response: Response): Promise<void> => {
   const controller = new FeedController();
 
   await controller.save();

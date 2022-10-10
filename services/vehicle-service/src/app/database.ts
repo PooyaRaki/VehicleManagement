@@ -1,28 +1,25 @@
-import { DatabaseConfig } from '@utils/config';
-import 'reflect-metadata';
-import { DataSource } from 'typeorm';
+import { DatabaseConfig } from "@utils/config";
+import "reflect-metadata";
+import { DataSource } from "typeorm";
 
 export class Database {
-    public static _instance: Promise<DataSource>;
+  public static _instance: Promise<DataSource>;
 
-    private constructor()
-    {
-        //
+  private constructor() {
+    //
+  }
+
+  private async connect(): Promise<DataSource> {
+    return await new DataSource(DatabaseConfig).initialize();
+  }
+
+  public static async getInstance(): Promise<DataSource> {
+    if (this._instance !== undefined) {
+      return await this._instance;
     }
 
-    private async connect(): Promise<DataSource>
-    {
-        return await (new DataSource(DatabaseConfig)).initialize();
-    }
+    this._instance = new Database().connect();
 
-    public static async getInstance(): Promise<DataSource>
-    {
-        if (this._instance) {
-            return this._instance;
-        }
-
-        this._instance = (new Database()).connect();
-
-        return this._instance;
-    }
+    return await this._instance;
+  }
 }

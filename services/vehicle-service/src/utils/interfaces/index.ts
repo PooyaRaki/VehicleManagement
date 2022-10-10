@@ -1,2 +1,2 @@
-export * from './feed.interface';
-export * from './response.interface';
+export * from "./feed.interface";
+export * from "./response.interface";

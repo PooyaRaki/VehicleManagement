@@ -4,12 +4,12 @@ import { PriceController } from "./price.controller";
 
 const router = Router();
 
-router.get('/', async (_: Request, response: Response): Promise<void> => {
-    const controller = new PriceController();
+router.get("/", async (_: Request, response: Response): Promise<void> => {
+  const controller = new PriceController();
 
-    const result = await controller.fetch();
+  const result = await controller.fetch();
 
-    response.send(result);
+  response.send(result);
 });
 
 export default router;

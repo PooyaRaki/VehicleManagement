@@ -21,12 +21,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://pooyaraki@gitlab.com/PooyaRaki/vehiclemanager.git"
+    "url": "git+https://github.com/PooyaRaki/VehicleManagement.git"
   },
   "keywords": [
     "vehicle",
-    "vehiclemanager",
-    "taskmanager"
+    "vehiclemanager"
   ],
   "author": "PooyaRaki",
   "license": "GPL-3.0",

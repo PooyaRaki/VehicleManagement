@@ -1,1 +1,1 @@
-export * from './parseFeed';
+export * from "./parseFeed";

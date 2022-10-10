@@ -16,8 +16,8 @@ import { CronJobs } from "jobs";
   app.use(
     urlencoded({
       extended: true,
-    }),
-  );  
+    })
+  );
   app.use(express.json());
 
   RegisterRoutes(app);
@@ -25,9 +25,9 @@ import { CronJobs } from "jobs";
 
   await Database.getInstance();
 
-  CronJobs();
+  await CronJobs();
 
   app.listen(AppConfig.port, () => {
-    console.log('App is running!');
+    console.log("App is running!");
   });
-})();
+})().then(() => {}).catch(() => {});

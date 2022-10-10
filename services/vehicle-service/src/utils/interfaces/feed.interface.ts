@@ -1,9 +1,9 @@
 export interface ApiResult {
-    ttl: number;
-    version: string;
-    last_updated: number;
+  ttl: number;
+  version: string;
+  last_updated: number;
 }
 
 export interface Feedable {
-    parseFeed(): Promise<boolean>
+  parseFeed: () => Promise<boolean>;
 }
